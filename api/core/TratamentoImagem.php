@@ -107,7 +107,9 @@
             }
             if($this->props['grayscale']){
                 $image->setImageType(\Imagick::IMGTYPE_GRAYSCALE);
-                $image->setImageAlphaChannel(\Imagick::ALPHACHANNEL_ACTIVATE);
+		if($image->getImageAlphaChannel()){
+                	$image->setImageAlphaChannel(\Imagick::ALPHACHANNEL_ACTIVATE);
+		}
             }else{
                 $image->setImageType(\Imagick::IMGTYPE_OPTIMIZE);    
             }
